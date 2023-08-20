@@ -2,19 +2,37 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 export default function LoginPage() {
+  const router = useRouter();
   const [user, setUser] = useState({
     email: "",
     password: "",
   });
+  const [buttonDisabled, setButtonDisabled] = useState(false);
 
-  const onLogin = () => {};
+  const onLogin = async () => {
+    try {
+      await axios.post("/api/users/login", user);
+      router.push("/profile");
+    } catch (error: any) {
+      console.log("error", error.message);
+    }
+  };
+
+  useEffect(() => {
+    if (user.email.length > 0 && user.password.length > 0) {
+      setButtonDisabled(false);
+    } else {
+      setButtonDisabled(true);
+    }
+  }, [user]);
 
   return (
     <div>
-      <h1>SignUp</h1>
+      <h1>Login</h1>
       <div className="flex flex-col">
         <label htmlFor="email">Email</label>
         <input
@@ -33,7 +51,10 @@ export default function LoginPage() {
           placeholder="password"
         />
 
-        <button onClick={onLogin}>Login</button>
+        <button onClick={onLogin}>
+          {/* {buttonDisabled ? "no Login" : "Login"} */}
+          Login
+        </button>
         <Link href="/signup">visit SignUp page</Link>
       </div>
     </div>
