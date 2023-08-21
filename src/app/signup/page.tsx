@@ -37,38 +37,71 @@ export default function SignUpPage() {
   }, [user]);
 
   return (
-    <div>
-      <h1>SignUp</h1>
-      <div className="flex flex-col">
-        <label htmlFor="username">Username</label>
-        <input
-          id="username"
-          type="text"
-          value={user.username}
-          onChange={(e) => setUser({ ...user, username: e.target.value })}
-          placeholder="Username"
+    <div className="bg-[#1c1864] h-screen w-screen flex items-center">
+      <div className="h-max mx-auto flex flex-col items-center">
+        <img
+          className="h-[40px] w-[47px] mb-5"
+          src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+          alt=""
         />
-        <label htmlFor="email">Email</label>
-        <input
-          id="email"
-          type="email"
-          value={user.email}
-          onChange={(e) => setUser({ ...user, email: e.target.value })}
-          placeholder="email"
-        />
-        <label htmlFor="password">Password</label>
-        <input
-          id="password"
-          type="password"
-          value={user.password}
-          onChange={(e) => setUser({ ...user, password: e.target.value })}
-          placeholder="password"
-        />
-
-        <button onClick={onSignUp}>
-          {buttonDisabled ? "No SignUp" : "SignUp"}
-        </button>
-        <Link href="/login">visit login page</Link>
+        <h1 className="text-xl font-bold text-center pb-10">
+          Sign up for your account
+        </h1>
+        <div className="bg-white shadow-xl p-10 flex flex-col gap-4 text-sm">
+          <div>
+            <label className="text-gray-600 font-bold inline-block pb-2">
+              Username
+            </label>
+            <input
+              className="border text-black border-gray-400 focus:outline-slate-400 rounded-md w-full shadow-sm px-5 py-2"
+              type="text"
+              name="username"
+              placeholder="anything"
+              value={user.username}
+              onChange={(e) => setUser({ ...user, username: e.target.value })}
+            />
+          </div>
+          <div>
+            <label className="text-gray-600 font-bold inline-block pb-2">
+              Email
+            </label>
+            <input
+              className="border text-black border-gray-400 focus:outline-slate-400 rounded-md w-full shadow-sm px-5 py-2"
+              type="email"
+              name="email"
+              placeholder="example@gmail.com"
+              value={user.email}
+              onChange={(e) => setUser({ ...user, email: e.target.value })}
+            />
+          </div>
+          <div>
+            <label className="text-gray-600 font-bold inline-block pb-2">
+              Password
+            </label>
+            <input
+              className="border text-black border-gray-400 focus:outline-slate-400 rounded-md w-full shadow-sm px-5 py-2"
+              type="password"
+              name="password"
+              placeholder="********"
+              value={user.password}
+              onChange={(e) => setUser({ ...user, password: e.target.value })}
+            />
+          </div>
+          <div>
+            <button
+              className="bg-[#4F46E5] w-full py-2 rounded-md text-white font-bold cursor-pointer hover:bg-[#181196]"
+              onClick={onSignUp}
+            >
+              {buttonDisabled ? "Sign Up" : "Sign Up"}
+            </button>
+          </div>
+        </div>
+        <p className="text-sm text-gray-500 mt-10">
+          Do you have a profile?
+          <Link href="/login" className="text-[#4F46E5] font-bold">
+            Login
+          </Link>
+        </p>
       </div>
     </div>
   );
