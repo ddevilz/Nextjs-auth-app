@@ -43,7 +43,7 @@ export default function LoginPage() {
               Email
             </label>
             <input
-              className="border border-gray-400 focus:outline-slate-400 rounded-md w-full shadow-sm px-5 py-2"
+              className="border text-black border-gray-400 focus:outline-slate-400 rounded-md w-full shadow-sm px-5 py-2"
               type="email"
               name="email"
               placeholder="example@gmail.com"
@@ -56,7 +56,7 @@ export default function LoginPage() {
               Password
             </label>
             <input
-              className="border border-gray-400 focus:outline-slate-400 rounded-md w-full shadow-sm px-5 py-2"
+              className="border text-black border-gray-400 focus:outline-slate-400 rounded-md w-full shadow-sm px-5 py-2"
               type="password"
               name="password"
               placeholder="******"
