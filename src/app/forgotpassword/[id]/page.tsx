@@ -30,7 +30,7 @@ export default function ForgotPassword() {
 
         <form>
           <div className="mb-6">
-            <label className="block mb-2 text-sm text-gray-600">Email</label>
+            <label className="block mb-2 text-sm text-gray-600">New Password</label>
             <input
               type="text"
               name="password"
@@ -42,7 +42,7 @@ export default function ForgotPassword() {
           </div>
           <button
             onClick={checkPassword}
-            className="w-32 bg-gradient-to-r from-cyan-400 to-cyan-600 text-white py-2 rounded-lg mx-auto block focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 mt-4 mb-4"
+            className="bg-[#4F46E5] w-full py-2 rounded-md text-white font-bold cursor-pointer hover:bg-[#181196]"
           >
             Submit
           </button>

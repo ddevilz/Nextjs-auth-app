@@ -2,9 +2,25 @@
 
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import React, { useState, useEffect } from "react";
 
 export default function UserProfile({ params }: any) {
   const router = useRouter();
+  const [data, setData] = useState();
+
+  const getProfileData = async () => {
+    try {
+      const res = await axios.get("/api/users/me");
+      const userId = res?.data.user;
+      setData(userId);
+    } catch (error: any) {
+      console.error(error.message);
+    }
+  };
+
+  useEffect(() => {
+    getProfileData();
+  }, []);
 
   const logout = async () => {
     try {
@@ -26,15 +42,46 @@ export default function UserProfile({ params }: any) {
     }
   };
   return (
-    <div className="">
-      <h1>Profile</h1>
-      <hr />
-      <p className="text-4xl">
-        Profile Page
-        <span className="p-2 bg-indigo-500">{userId}</span>
-      </p>
-      <button onClick={logout}>Logout</button>
-      <button onClick={verifyEmail}>Verify</button>
+    <div>
+      {data && (
+        <div className="h-screen w-full flex flex-col items-center justify-center bg-teal-lightest font-sans">
+          <div className="h-screen w-full absolute flex items-center justify-center ">
+            <div className="bg-white rounded shadow p-8 m-4 max-w-xs max-h-full text-center overflow-y-scroll">
+              <div className="mb-4">
+                <h1 className="text-black pt-3 pb-3 rounded-md font-semibold hover:font-bold text-3xl bg-cyan-400">
+                  {data.username}
+                </h1>
+              </div>
+              <div className="mb-8">
+                <p className="text-black">
+                  Ready to get started? Keep scrolling to see some great
+                  components.
+                </p>
+              </div>
+              <div className="flex justify-between">
+                <button
+                  onClick={logout}
+                  className="group relative mr-2 h-12 w-48 overflow-hidden rounded-lg bg-white text-lg shadow"
+                >
+                  <div className="absolute inset-0 w-3 bg-amber-400 transition-all duration-[250ms] ease-out group-hover:w-full"></div>
+                  <span className="relative text-black group-hover:text-white">
+                    Logout
+                  </span>
+                </button>
+                <button
+                  onClick={verifyEmail}
+                  className="group relative h-12 w-48 overflow-hidden rounded-lg bg-white text-lg shadow"
+                >
+                  <div className="absolute inset-0 w-3 bg-amber-400 transition-all duration-[250ms] ease-out group-hover:w-full"></div>
+                  <span className="relative text-black group-hover:text-white">
+                    Verify Email
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
