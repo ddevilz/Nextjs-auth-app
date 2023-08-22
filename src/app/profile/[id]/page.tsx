@@ -54,14 +54,13 @@ export default function UserProfile({ params }: any) {
               </div>
               <div className="mb-8">
                 <p className="text-black">
-                  Ready to get started? Keep scrolling to see some great
-                  components.
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab, quidem?
                 </p>
               </div>
               <div className="flex justify-between">
                 <button
                   onClick={logout}
-                  className="group relative mr-2 h-12 w-48 overflow-hidden rounded-lg bg-white text-lg shadow"
+                  className="group relative mr-2 h-9 w-48 overflow-hidden rounded-lg bg-white text-lg shadow"
                 >
                   <div className="absolute inset-0 w-3 bg-amber-400 transition-all duration-[250ms] ease-out group-hover:w-full"></div>
                   <span className="relative text-black group-hover:text-white">
@@ -70,7 +69,7 @@ export default function UserProfile({ params }: any) {
                 </button>
                 <button
                   onClick={verifyEmail}
-                  className="group relative h-12 w-48 overflow-hidden rounded-lg bg-white text-lg shadow"
+                  className="group relative h-9 w-48 overflow-hidden rounded-lg bg-white text-lg shadow"
                 >
                   <div className="absolute inset-0 w-3 bg-amber-400 transition-all duration-[250ms] ease-out group-hover:w-full"></div>
                   <span className="relative text-black group-hover:text-white">
