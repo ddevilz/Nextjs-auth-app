@@ -40,11 +40,6 @@ export default function SignUpPage() {
   return (
     <div className="bg-[#1c1864] h-screen w-screen flex items-center">
       <div className="h-max mx-auto flex flex-col items-center">
-        <Image
-          className="h-[40px] w-[47px] mb-5"
-          src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-          alt="logo"
-        />
         <h1 className="text-xl font-bold text-center pb-10">
           Sign up for your account
         </h1>
