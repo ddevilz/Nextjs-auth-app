@@ -1,17 +1,25 @@
 "use client";
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 export default function ForgotPassword() {
   const [password, setPassword] = useState("");
+  const [token, setToken] = useState("");
+  const [error, setError] = useState(false);
 
   const checkPassword = async () => {
     try {
-      await axios.post("/api/users/forgotpassword", { password });
+      await axios.post("/api/users/forgotpassword", { token, password });
     } catch (error: any) {
+      setError(true);
       return console.log(error);
     }
   };
+
+  useEffect(() => {
+    const urlToken = window.location.search.split("=")[1];
+    setToken(urlToken || "");
+  }, []);
 
   return (
     <div className="min-h-screen flex items-center justify-center">

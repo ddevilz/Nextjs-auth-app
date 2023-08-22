@@ -74,7 +74,7 @@ export default function LoginPage() {
               <label className="text-black ml-2">Remeber me</label>
             </div>
             <div className="w-1/2">
-              <Link className="font-bold text-blue-600" href="">
+              <Link className="font-bold text-blue-600" href="/forgotpassword">
                 Forgot password ?
               </Link>
             </div>
